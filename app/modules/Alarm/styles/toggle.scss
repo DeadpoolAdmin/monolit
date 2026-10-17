@@ -1,0 +1,107 @@
+.toggle {
+  width: 143rem;
+  margin: auto;
+  position: relative;
+  top: -7rem;
+}
+
+.toggle__Item {
+  .switch {
+    width: 61rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0.2rem solid transparent;
+    border-bottom: 0.2rem solid
+      var(--secondary-button-bg-color, var(--initial-secondary-button-bg-color));
+    border-radius: 2rem;
+    padding: 2rem;
+    transition: 0.2s ease;
+    font-family: var(
+      --paragraph-font-family,
+      var(--initial-paragraph-font-family)
+    );
+    color: var(--card-text-color, var(--initial-card-text-color));
+
+    * {
+      font-family: inherit;
+      color: inherit;
+    }
+    &.active {
+      border-color: var(--active-color, var(--initial-active-color));
+    }
+
+    span {
+      position: relative;
+      width: 10rem;
+      height: 5.4rem;
+
+      input {
+        display: none;
+
+        &:checked + .slider {
+          background-color: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-bg-color)
+          );
+        }
+
+        &:checked + .slider:before {
+          transform: translateX(4.6rem);
+        }
+
+        &:focus + .slider {
+          box-shadow: 0 0 1px
+            var(
+              --primary-button-bg-color,
+              var(--initial-primary-button-bg-color)
+            );
+        }
+      }
+    }
+
+    label {
+      line-height: 3.4rem;
+      margin-left: 1.2rem;
+      cursor: pointer;
+    }
+
+    .switch__text {
+      font-size: 3.5rem;
+      color: var(--card-text-color, var(--initial-card-text-color));
+      font-weight: 500;
+      height: initial;
+      // margin-left: 3rem;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border: 0;
+    outline: none;
+    background-color: var(
+      --secondary-button-bg-color,
+      var(--initial-secondary-button-bg-color)
+    );
+    transition: 0.4s;
+    border-radius: 3.4rem;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 4.6rem;
+      width: 4.6rem;
+      left: 0.4rem;
+      bottom: 0.4rem;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 10rem;
+    }
+  }
+}

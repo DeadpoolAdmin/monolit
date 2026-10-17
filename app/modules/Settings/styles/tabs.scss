@@ -1,0 +1,55 @@
+.settings__top {
+  position: relative;
+  top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .tab__content {
+    display: flex;
+    align-items: center;
+    background: var(--room-control-card-bg, #202023);
+    padding: 1.8rem 5rem;
+    border-radius: 7.43rem;
+    font-family: var(--heading-font-family, var(--initial-heading-font-family));
+    color: var(--card-text-color, var(--initial-card-text-color));
+    transition: 0.3s ease;
+    justify-content: space-between;
+    font-size: 2.7rem;
+    max-width: 110rem;
+    width: 73rem;
+
+    div {
+      padding: 1.5rem 2rem;
+      border-radius: 7.43rem;
+      transition: 0.3s ease;
+      width: 40rem;
+      max-width: 50rem;
+      text-align: center;
+      border: 0.2rem solid transparent;
+      flex: 1 1 0;
+      margin: 0 1rem;
+      min-width: 0;
+
+      span {
+        width: 100%;
+        text-align: center;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &.active {
+        border-color: var(--active-color);
+      }
+
+      &.selected {
+        background: var(
+          --primary-button-bg-color,
+          var(--initial-primary-button-bg-color)
+        );
+      }
+    }
+  }
+}

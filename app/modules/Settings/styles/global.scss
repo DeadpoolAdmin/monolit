@@ -1,0 +1,77 @@
+// Import shared status color variables
+@use "@shared/styles/variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pending {
+  color: $pending-text;
+  background-color: $pending;
+}
+
+.finished {
+  color: $finished-text;
+  background-color: $finished;
+}
+
+.canceled {
+  color: $canceled-text;
+  background-color: $canceled;
+}
+
+.accepted {
+  color: $ready-text;
+  background-color: $ready;
+}
+
+.ready {
+  color: $ready-text;
+  background-color: $ready;
+}
+
+.confirmed {
+  color: $confirmed-text;
+  background-color: $confirmed;
+}
+
+.rejected {
+  color: $rejected-text;
+  background-color: $rejected;
+}
+
+.in_progress {
+  color: $in_progress-text;
+  background-color: $in_progress;
+}
+
+.progress,
+[class*="in progress"] {
+  color: $in_progress-text;
+  background-color: $in_progress;
+}
+
+:root {
+  --initial-app-background: #1D1C2E;
+  --intial-app-background: var(--initial-app-background);
+  --initial-active-color: white;
+  --initial-heading-font-family: "Wix Madefor Display", sans-serif;
+  --initial-paragraph-font-family: "DM Sans";
+  --initial-card-text-color: #fff;
+  --initial-date-text-color: #fff;
+  --initial-menu-item-text-color: #fff;
+  --initial-messages-text-color: #fff;
+  --initial-screen-text-color: #fff;
+  --initial-secondary-button-text-color: #000;
+  --initial-secondary-button-bg-color: #fff;
+  --initial-secondary-button-hovered-color: #eee;
+  --initial-heading-text-color: #fff;
+  --initial-paragraph-text-color: #fff;
+  --initial-room-control-card-bg: #1a1a1a;
+  --initial-primary-button-active-color: #fff;
+  --initial-primary-button-bg-color: #6c63ff;
+  --initial-primary-button-text-color: #fff;
+  --initial-screen-height: var(--screen-height);
+}

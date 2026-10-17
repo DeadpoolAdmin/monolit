@@ -1,0 +1,11 @@
+.settings__app_version {
+  font-size: 3.7rem;
+  position: absolute;
+  top: 101rem;
+  left: 5rem;
+  color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+  font-family: var(
+    --paragraph-font-family,
+    var(--initial-paragraph-font-family)
+  );
+}

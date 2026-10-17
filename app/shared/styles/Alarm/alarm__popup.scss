@@ -1,0 +1,144 @@
+// Alarm popup content styles
+// The wrapper and overlay are now handled by shared Popup component
+.alarm__popup {
+  // These wrapper styles are now handled by the shared Popup component
+  // Keeping this selector for nested content styles
+
+  .select-time-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7rem;
+    width: 120rem;
+
+    margin-top: 6rem;
+
+    .time-group {
+      font-size: 8rem;
+      display: flex;
+      align-items: center;
+      font-family: var(
+        --heading-font-family,
+        var(--initial-heading-font-family)
+      );
+      color: var(--card-text-color, var(--initial-card-text-color));
+
+      * {
+        font-family: inherit;
+        color: inherit;
+      }
+
+      .hours {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .up-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        svg {
+          fill: var(
+            --card-text-color,
+            var(--initial-card-text-color)
+          ) !important;
+        }
+      }
+
+      .date {
+        font-size: 5rem;
+        outline: none;
+        border: none;
+        margin: 0 3rem;
+        border: 0.2rem solid transparent;
+        padding: 2rem 7rem;
+        border-radius: 1.6rem;
+        background: var(--room-control-card-bg);
+        color: var(--card-text-color, var(--initial-card-text-color));
+        text-align: center;
+        width: 50rem;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+          color: var(--heading-text-color, var(--initial-heading-text-color));
+        }
+      }
+
+      input,
+      span {
+        font-size: 5rem;
+        background: transparent;
+        outline: none;
+        border: none;
+        margin: 0 3rem;
+        border: 0.2rem solid transparent;
+        padding: 2rem 4rem;
+        border-radius: 1.6rem;
+        background: var(--room-control-card-bg);
+        color: var(--card-text-color, var(--initial-card-text-color));
+        text-align: center;
+
+        &.active,
+        &:hover {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .popup__content {
+    width: 150rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    font-family: var(--heading-font-family);
+    position: relative;
+    color: var(--card-text-color);
+    background: #121212;
+
+    .content__title {
+      margin-top: 6rem;
+      font-size: 4rem;
+      font-weight: 600;
+    }
+
+    .alarm__icon {
+      width: 15rem;
+      height: 15rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .content__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 85rem;
+      margin-top: 13rem;
+      justify-content: space-around;
+
+      .smarters__btn {
+        width: 25rem !important;
+      }
+    }
+
+    .content__button {
+      margin-top: 7rem;
+    }
+  }
+}

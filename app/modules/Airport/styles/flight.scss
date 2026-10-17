@@ -1,0 +1,261 @@
+.flights {
+    width: 192rem;
+    height: var(--screen-height, 100vh);
+    background: var(--app-background, var(--initial-app-background)) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+  
+    .flight__header {
+      padding: 0;
+      color: var(--card-text-color, white);
+      margin: auto;
+      top: 17rem;
+      left: 0rem;
+      width: 165rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--heading-font-family, var(--initial-heading-font-family));
+      font-size: 3rem;
+      position: relative;
+  
+      .flight__tabs {
+        padding: 2rem;
+        background: var(--room-control-card-bg);
+        align-items: center;
+        border-radius: 10rem;
+        height: 7.7rem;
+        font-size: 2.6rem;
+        width: 50rem;
+        max-width: 80rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+  
+        .flight__tab {
+          transition: 0.3s ease;
+          min-width: 22rem;
+          max-width: 40rem;
+          padding: 1rem;
+          border: 0.2rem solid transparent;
+          border-radius: 5rem;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          line-clamp: 1;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+
+          &.selected {
+            background: var(
+              --primary-button-bg-color,
+              var(--initial-primary-button-bg-color)
+            );
+          }
+  
+          &.active {
+            padding: 1rem;
+            border-color: var(--active-color, var(--initial-active-color));
+          }
+  
+
+        }
+      }
+    }
+  
+    .flight-table {
+      padding: 0;
+      background: transparent;
+      color: var(--heading-text-color, white);
+      font-family: var(--heading-font-family, var(--initial-heading-font-family));
+      position: relative;
+      width: 162rem;
+      height: 82rem;
+      overflow: auto;
+      margin: 20rem auto;
+  
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 3rem;
+        text-align: left;
+  
+        thead {
+          th {
+            text-align: center;
+            color: var(--heading-text-color, #7b8ba3);
+            font-weight: 400;
+            font-size: 2.5rem;
+            padding: 2rem 3rem;
+            border-bottom: 0.2rem solid rgba(213, 215, 229, 0.2);
+            border-right: 0.2rem solid rgba(213, 215, 229, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+  
+            &:first-child {
+              width: 8rem;
+              text-align: center;
+            }
+  
+            &:last-child {
+              border-right: none;
+            }
+          }
+        }
+  
+        tbody {
+          tr {
+            position: relative;
+            border-bottom: 0.2rem solid rgba(213, 215, 229, 0.2);
+  
+            transition: all 0.3s ease;
+  
+            &:nth-child(even) {
+              background: rgba(32, 32, 35, 0.5);
+            }
+  
+            &:nth-child(odd) {
+              background: transparent;
+            }
+  
+            &.active {
+              background: var(--primary-button-bg-color, #2d6cdf);
+            }
+  
+            td {
+              padding: 2.5rem 3rem;
+              border-top: 0.2rem solid rgba(213, 215, 229, 0.2);
+              border-bottom: 0.2rem solid rgba(213, 215, 229, 0.2);
+              border-left: 0.2rem solid rgba(213, 215, 229, 0.2);
+              border-right: 0.2rem solid rgba(213, 215, 229, 0.2);
+              transition: 0.2s ease;
+  
+              color: var(--card-text-color, #ffffff);
+              font-size: 2.5rem;
+              position: relative;
+  
+              &:last-child {
+                border-right: none;
+              }
+  
+              &.plane-icon {
+                text-align: center;
+                font-size: 3rem;
+                color: var(--card-text-color, white);
+                width: 8rem;
+              }
+  
+              &.time-cell {
+                font-weight: 500;
+                min-width: 33rem;
+              }
+  
+              &.destination-cell {
+                font-weight: 500;
+                min-width: 19rem;
+              }
+  
+              &.flight-cell {
+                font-weight: 600;
+                color: var(--card-text-color, white);
+                min-width: 18rem;
+              }
+  
+              &.gate-cell {
+                font-weight: 500;
+                text-align: center;
+                min-width: 10rem;
+              }
+  
+              &.remarks-cell {
+                &.delayed {
+                  color: var(--card-text-color, white);
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05rem;
+                }
+  
+                &.on-time {
+                  // color: #27ae60;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05rem;
+                }
+  
+                &.boarding {
+                  // color: #f39c12;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05rem;
+                }
+              }
+            }
+  
+            &.placeholder-row {
+              background: transparent;
+  
+              td {
+                padding: 0;
+                border: none;
+                background: transparent;
+              }
+            }
+          }
+        }
+      }
+  
+      // Dotted border overlay effect
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+  
+      // Additional styling for the highlighted number boxes
+      .highlight-box {
+        position: absolute;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 2.5rem;
+        z-index: 10;
+  
+        &.left {
+          left: 1rem;
+        }
+  
+        &.right {
+          right: 1rem;
+        }
+      }
+    }
+  }
+  
+  // Keyframes for refresh icon animation
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

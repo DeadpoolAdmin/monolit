@@ -1,0 +1,15 @@
+@use './alarm.scss';
+@use './select_time.scss';
+@use './toggle.scss'; 
+
+
+.alarm__container {
+    width: 192rem;
+    height: var(--screen-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--app-background, var(--initial-app-background)) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}

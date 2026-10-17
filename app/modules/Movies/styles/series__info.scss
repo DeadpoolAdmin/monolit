@@ -1,0 +1,78 @@
+.series__info {
+    margin-top: 5rem;
+
+    .episodes {
+        margin-top: 3rem;
+
+        .episode__item {
+            background: #17171F;
+            border-radius: 2rem;
+            transition: .2s ease;
+            border: .2rem solid transparent;
+            will-change: transform;
+            display: flex;
+            justify-content: space-between;
+
+            &.active {
+                border-color: var(--active-color, var(--initial-active-color));;
+            }
+
+            .error__imageBlock {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40rem;
+
+                .error__image {
+                    width: 25rem;
+                }
+            }
+
+
+            .item__image {
+                height: 100%;
+
+
+                .img {
+                    width: 35rem;
+                    height: 100%;
+                    border-radius: 2rem;
+                    object-fit: cover;
+                }
+            }
+
+            .item__text {
+                padding: 0 3rem;
+                width: 40rem;
+                position: relative;
+                top: 4rem;
+                font-family: var(--paragraph-font-family, var(--initial-paragraph-font-family));
+                color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+
+                * {
+                    font-family: inherit;
+                    color: inherit;
+                }
+
+                .text__title {
+                    font-size: 3.4rem;
+                    font-weight: 600;
+                    text-overflow: ellipsis;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .text__description {
+                    font-size: 3rem;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

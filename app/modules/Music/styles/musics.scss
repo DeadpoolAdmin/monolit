@@ -1,0 +1,306 @@
+$appColor: #6c63ff;
+
+.visualizer {
+  width: 10rem;
+  height: 7rem;
+  text-align: center;
+}
+
+.bar {
+  display: inline-block;
+  width: 0.8rem;
+  margin: 0 0.4rem;
+  height: 1.2rem;
+  background-color: var(
+    --primary-button-bg-color,
+    var(--initial-primary-button-bg-color)
+  );
+  animation: bounce 1s infinite ease-in-out;
+  vertical-align: bottom;
+}
+
+.bar1 {
+  animation-delay: 0s;
+}
+
+.bar2 {
+  animation-delay: 0.3s;
+}
+
+.bar3 {
+  animation-delay: 0.5s;
+}
+
+.bar4 {
+  animation-delay: 0.7s;
+}
+
+.bar5 {
+  animation-delay: 0.9s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    height: 2rem;
+  }
+
+  50% {
+    height: 4rem;
+  }
+}
+
+.musics {
+  width: 192rem;
+  margin: auto;
+  height: var(--screen-height);
+  overflow: hidden;
+  background: var(--app-background, var(--initial-app-background)) no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .music__player {
+    position: relative;
+    top: 35rem;
+    font-size: 3rem;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 9rem;
+
+    .music__player__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100rem;
+
+      .content__fill {
+        width: 75rem;
+        height: 0.8rem;
+        background-color: var(
+          --secondary-button-bg-color,
+          var(--initial-secondary-button-bg-color)
+        );
+        border-radius: 2rem;
+        border: 0.2rem solid transparent;
+
+        .track-fill-progress {
+          width: 0;
+        }
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+    }
+  }
+
+  .music__title {
+    position: relative;
+    top: 30rem;
+    font-size: 3rem;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .track__name {
+      font-size: 5rem;
+      font-weight: 700;
+      width: 90rem;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      text-overflow: ellipsis;
+    }
+
+    .author__name {
+      font-size: 3rem;
+      letter-spacing: 0.05cm;
+      color: rgba(255, 255, 255, 0.327);
+      width: 75rem;
+      text-align: center;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .music__player_controls {
+    position: relative;
+    top: 39rem;
+    font-size: 3rem;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .player__content {
+      width: 80rem;
+      height: 10rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+
+      .pause {
+        font-size: 4rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      .backward__step {
+        font-size: 4rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      .forward__step {
+        font-size: 4rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      .playlist__repeat {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: 4rem;
+        padding: 2rem;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+        &.selected {
+          color: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-active-color)
+          );
+        }
+      }
+
+      .playlist__repeat__one {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: 4rem;
+        padding: 2rem;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+
+        &.selected {
+          color: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-active-color)
+          );
+        }
+      }
+
+      .playlist__list {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: 4rem;
+        padding: 2rem;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+        color: dimgray;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+
+        &.selected {
+          color: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-active-color)
+          );
+        }
+      }
+
+      .playlist__shuffle {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: 4rem;
+        padding: 2rem;
+        border: 0.2rem solid transparent;
+        border-radius: 50%;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+
+        &.selected {
+          color: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-active-color)
+          );
+        }
+      }
+    }
+  }
+
+  .music__list {
+    position: relative;
+    top: 20rem;
+    left: 75rem;
+
+    .music__list__item {
+      transition: 0.2s ease;
+      will-change: transfrom;
+
+      img {
+        border-radius: 1rem;
+      }
+
+      &.active {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

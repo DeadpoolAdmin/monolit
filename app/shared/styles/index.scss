@@ -1,0 +1,112 @@
+/* Initial CSS Variables */
+:root {
+  --initial-app-background: radial-gradient(
+    circle at top left,
+    #14132a 0%,
+    #0d0c14 100%
+  );
+  --intial-app-background: var(--initial-app-background);
+  --initial-active-color: white;
+  --initial-heading-font-family: "Wix Madefor Display", sans-serif;
+  --initial-paragraph-font-family: "DM Sans";
+  --initial-card-text-color: #fff;
+  --initial-date-text-color: #fff;
+  --initial-menu-item-text-color: #fff;
+  --initial-messages-text-color: #fff;
+  --initial-screen-text-color: #fff;
+  --initial-secondary-button-text-color: #000;
+  --initial-secondary-button-bg-color: #fff;
+  --initial-secondary-button-hovered-color: #eee;
+  --initial-heading-text-color: #fff;
+  --initial-paragraph-text-color: #fff;
+  --initial-room-control-card-bg: #1a1a1a;
+  --initial-primary-button-active-color: #fff;
+  --initial-primary-button-bg-color: #6c63ff;
+  --initial-primary-button-text-color: #fff;
+  --initial-screen-height: var(--screen-height);
+}
+
+/* 1. Playfair Display (400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap");
+
+/* 2. Merriweather (300, 400, 700, 900) */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap");
+
+/* 3. Lora (400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+
+/* 4. Cormorant Garamond (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&display=swap");
+
+/* 5. Libre Baskerville (400, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap");
+
+/* 6. Poppins (300, 400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* 7. Roboto (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+/* 8. Open Sans (300, 400, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+/* 9. Inter (300, 400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* 10. Work Sans (300, 400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+/* 11. Nunito (300, 400, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+
+/* 12. Quicksand (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap");
+
+/* 13. Mulish (300, 400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap");
+
+/* 14. DM Sans (400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+/* 15. Ubuntu (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* 16. Raleway (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap");
+
+/* 17. Josefin Sans (300, 400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
+
+/* 18. Fira Sans (300, 400, 500, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700&display=swap");
+
+/* 19. Cabin (400, 500, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap");
+
+/* 20. Source Sans Pro (300, 400, 600, 700) */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* removes blue highlight on touch */
+    -webkit-touch-callout: none;    
+}
+
+body {
+    // background: var(--app-background) no-repeat;
+    // background-size: cover;
+    background: black;
+    width: 192rem;
+    height: var(--screen-height);
+}
+
+
+button, a, div, span {
+  outline: none;
+}
+
+html {
+    font-size: 10px;
+}

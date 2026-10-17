@@ -1,0 +1,51 @@
+.no_internet_connection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 192rem;
+    height: var(--screen-height, var(--intital-screen-height));
+    background: var(--initial-app-background) no-repeat;
+    font-family: var(--initial-heading-font-family);
+
+    .no_internet_connection__title {
+        font-size: 7rem;
+        color: #fff;
+        text-align: center;
+
+    }
+
+    .no_internet_connection__description {
+        font-size: 4rem;
+        text-shadow: 0 2.713px 9.9px rgba(0, 0, 0, 0.27);
+        color: #fff;
+        width: 105.6rem;
+        text-align: center;
+        margin-top: 3.5rem;
+    }
+
+    .no_internet_connection__image {
+        width: 20.7rem;
+        height: 20.7rem;
+        margin-top: 9rem;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .no_internet_connection__button {
+        margin-top: 10rem;
+
+        button {
+            background: var(--initial-primary-button-bg-color);
+            border: 0.2rem solid transparent;
+            color: white;
+            &.active {
+                border-color: var(--initial-active-color);
+            }
+        }
+    }
+}

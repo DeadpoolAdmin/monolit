@@ -1,0 +1,91 @@
+.livetv__search {
+  width: 192rem;
+  height: var(--screen-height, 108rem);
+
+  .filtered__channels {
+    width: 100%;
+    height: 68rem;
+    overflow: hidden;
+  }
+
+  .search__input {
+    width: 63rem;
+    margin-bottom: 5rem;
+    input {
+      width: 100%;
+      padding: 1.2rem 1.6rem;
+      border-radius: 1rem;
+      font-size: 3rem;
+      outline: none;
+      background: transparent;
+      transform: 0.2s ease;
+      color: var(--heading-text-color, var(--initial-heading-text-color));
+      font-family: var(
+        --heading-font-family,
+        var(--initial-heading-font-family)
+      );
+      border: 0.2rem solid
+        var(
+          --secondary-button-bg-color,
+          var(--initial-secondary-button-bg-color)
+        );
+
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+    }
+  }
+}
+
+.keyboard {
+  background: transparent !important;
+  position: fixed; /* Always stays in place */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  background: rgba(20, 20, 20, 0.95);
+  padding: 16px 0;
+  // box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+
+  .ino-keyboard {
+    max-width: 115rem !important;
+  }
+
+  button {
+    font-size: 4rem !important;
+    width: 10rem !important;
+    height: 6rem !important;
+    background: #333 !important;
+    color: white !important;
+    border: 0.2rem solid transparent !important;
+  }
+
+  .ino-button.ino-button--primary.ino-button--medium.ino-keyboard-key.ino-keyboard-key--space {
+    width: 100% !important;
+  }
+
+  .ino-keyboard-key--clear {
+    font-size: 3rem !important;
+  }
+}
+
+// Target the active keyboard key with higher specificity (TV only)
+.keyboard--tv .ino-keyboard .ino-keyboard-key--active,
+.keyboard--tv .ino-keyboard .ino-keyboard-key.ino-keyboard-key--active,
+.keyboard--tv .ino-keyboard button.ino-keyboard-key--active,
+.keyboard--tv .ino-keyboard button.ino-keyboard-key.ino-keyboard-key--active {
+  border-color: var(--active-color, var(--initial-active-color)) !important;
+}
+
+// Even more specific - target all possible combinations (all devices)
+.keyboard button.ino-keyboard-key--active,
+.keyboard button.ino-keyboard-key.ino-keyboard-key--active,
+.keyboard .ino-keyboard button.ino-keyboard-key--active,
+.keyboard .ino-keyboard-container button.ino-keyboard-key--active {
+  border-color: black !important;
+  border: 0.2rem solid black !important;
+}

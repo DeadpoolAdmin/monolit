@@ -1,0 +1,272 @@
+.messages {
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  height: var(--screen-height);
+
+  .divider {
+    position: relative;
+    margin-top: 3rem;
+    height: 0.2rem;
+    background: var(--primary-button-bg-color, var(--initial-button-bg-color));
+  }
+
+  .messages__header {
+    width: 100%;
+    color: var(--heading-text-color, var(--initial-heading-text-color));
+    font-family: var(--heading-font-famliy, var(--initial-heading-font-family));
+    font-size: 4.5rem;
+    font-weight: 600;
+
+    .active__border {
+      width: 9rem;
+      height: 0.5rem;
+      background-color: var(
+        --secondary-button-bg-color,
+        var(--initial-secondary-button-bg-color)
+      );
+      top: 1rem;
+      transition: 0.2s ease;
+      position: relative;
+
+      &.All {
+        transform: translateX(0);
+      }
+
+      &.Staff {
+        transform: translateX(85rem);
+      }
+
+      &.Guests {
+        transform: translateX(174rem);
+      }
+
+      &.active {
+        background: var(--active-color, var(--initial-active-color));
+      }
+    }
+
+    .header__tabs {
+      margin-top: 5rem;
+      padding: 2rem;
+      font-size: 3rem;
+      letter-spacing: 0.05cm;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+    }
+  }
+
+  .messages__search {
+    margin-top: 5rem;
+    width: 100%;
+
+    .search__input {
+      width: 100%;
+      background-color: #161618;
+      border-radius: 6rem;
+      display: flex;
+      align-items: center;
+      border: 0.1rem solid rgba(255, 255, 255, 0.242);
+      position: relative;
+      transition: border-color 0.2s ease;
+
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+
+      .search__modal {
+        position: absolute;
+        top: 7rem;
+        left: 133rem;
+        width: 25rem;
+        height: 18rem;
+        flex-direction: column;
+        display: flex;
+        border-radius: 3rem;
+        z-index: 1;
+        font-size: 2.5rem;
+        color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+        font-family: var(
+          --paragraph-font-famliy,
+          var(--initial-paragraph-font-family)
+        );
+        background-color: #161618;
+        border: 0.2rem solid rgba(255, 255, 255, 0.242);
+        span {
+          padding: 1.5rem;
+          width: 100%;
+          border-bottom: 0.2rem solid rgba(255, 255, 255, 0.242);
+          margin: 1rem 0;
+        }
+      }
+
+      .search__icon,
+      .search__filter {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 4rem;
+      }
+
+      .search__icon {
+        left: 5rem;
+      }
+
+      input {
+        position: relative;
+        left: 5rem;
+        width: calc(100% - 14rem);
+        height: 10rem;
+        padding: 2rem;
+        font-size: 3.5rem;
+        border-radius: 6rem;
+        border: none;
+        display: flex;
+        align-items: center;
+        caret-color: white;
+        color: white;
+        outline: none;
+        background-color: transparent;
+
+        &::placeholder {
+          font-size: 3.5rem;
+          margin-left: 20rem;
+        }
+      }
+    }
+  }
+
+  .messages__body {
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 5rem;
+    scrollbar-width: none;
+
+    .data__drawer {
+      div {
+        height: 20rem;
+      }
+    }
+
+    .messages__user {
+      display: flex;
+      align-items: center;
+
+      &.tv {
+        border: 0.2rem solid transparent;
+        transition: 0.2s ease;
+        border-radius: 1rem;
+        padding: 2rem;
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      .messages__user-image {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: contain;
+        }
+      }
+
+      .messages__user-info {
+        margin-left: 3rem;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-size: 2.5rem;
+        width: 179rem;
+
+        .user-info-left {
+          display: flex;
+          font-size: 2.5rem;
+          color: white;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .user-info-right {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .messages__user-name {
+            color: var(
+              --paragraph-text-color,
+              var(--initial-paragraph-text-color)
+            );
+            font-size: 3rem;
+            text-align: center;
+            width: 6rem;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            color: var(
+              --secondary-button-text-color,
+              var(--initial-secondary-button-text-color)
+            );
+            border-radius: 50%;
+          }
+
+          .messages__user-message {
+            align-items: center;
+            justify-content: center;
+            background: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            color: var(
+              --secondary-button-text-color,
+              var(--initial-secondary-button-text-color)
+            );
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            padding: 2rem;
+            font-size: 2.5rem;
+          }
+        }
+
+        .messages__user-name {
+          font-weight: 600;
+          font-size: 3.5rem;
+          font-family: var(
+            --heading-font-famliy,
+            var(--initial-heading-font-family)
+          );
+          margin-bottom: 1rem;
+        }
+
+        .messages__user-message {
+          font-weight: 600;
+          font-size: 2.5rem;
+          font-family: var(
+            --paragraph-font-famliy,
+            var(--initial-paragraph-font-family)
+          );
+          margin-top: 1rem;
+          width: 100rem;
+
+          display: flex;
+        }
+      }
+    }
+  }
+}

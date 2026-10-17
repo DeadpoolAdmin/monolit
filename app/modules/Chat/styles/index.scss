@@ -1,0 +1,12 @@
+@use './main.scss';
+@use './message.scss';
+
+.chat__conatiner {
+  width: 192rem;
+  height: var(--screen-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--app-background, var(--initial-app-background)) no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,33 @@
+.boundary__container {
+    width: 192rem;
+    height: var(--screen-height);
+    background: var(--app-background, var(--initial-app-background));
+
+    .container__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        .content__image {
+           width: 65.4rem;
+           height: 26.1rem;
+
+           img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+           }
+        }
+
+        .content__text {
+            font-size: 3rem;
+            color: #fff;
+            text-align: center;
+            margin-top: 2rem;
+            font-family: var(--paragraph-font-family, var(--initial-paragraph-font-family));
+        }
+    }
+}

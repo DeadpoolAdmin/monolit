@@ -1,0 +1,116 @@
+.sidebar {
+  width: 70rem;
+  height: var(--screen-height, 108rem);
+  background: var(--room-control-card-bg, #202023);
+  box-shadow: 7.2rem 0 6rem rgba(0, 0, 0, 0.15);
+  font-family: var(--heading-font-family, var(--initial-heading-font-family));
+  position: relative;
+  z-index: 1;
+
+  .sidebar__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0;
+
+    .sidebar__header_item {
+      padding: 2rem;
+      font-size: 4.3rem;
+      color: var(--card-text-color, var(--initial-card-text-color));
+      display: flex;
+      align-items: center;
+      border-radius: 1rem;
+      border: 0.2rem solid transparent;
+      transition: 0.2s ease;
+
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+
+      &.selected {
+        background: var(
+          --primary-button-bg-color,
+          var(--initial-primary-button-bg-color)
+        );
+      }
+    }
+  }
+
+  .sidebar__header > * + * {
+    margin-left: 5rem;
+  }
+
+  .sidebar__content {
+    width: 90%;
+    height: calc(100% - 28rem);
+    overflow: hidden;
+    font-size: 3rem;
+    font-family: var(
+      --paragraph-font-family,
+      var(--initial-paragraph-font-family)
+    );
+    color: var(--card-text-color, var(--initial-card-text-color));
+    display: flex;
+    margin: auto;
+
+    .categories__item {
+      padding: 2rem;
+    }
+
+    .channels__item,
+    .categories__item {
+      display: flex;
+      align-items: center;
+      border: 0.2rem solid transparent;
+      border-radius: 1rem;
+
+      &.selected {
+        background: var(
+          --primary-button-bg-color,
+          var(--initial-primary-button-bg-color)
+        );
+      }
+
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+
+      .divider {
+        width: 0.1rem;
+        height: 80%;
+        background-color: var(
+          --paragraph-text-color,
+          var(--initial-paragraph-text-color)
+        );
+        margin: 0 2rem;
+      }
+
+      .channels__item_name {
+        width: 40rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+      }
+
+      .channels__item_icon {
+        width: 13rem;
+        height: 10rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        border-radius: 1rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          border-radius: 1rem;
+          border: 0.2rem solid transparent;
+          transition: 0.2s ease;
+          opacity: none;
+        }
+      }
+    }
+  }
+}

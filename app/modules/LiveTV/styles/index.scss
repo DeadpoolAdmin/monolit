@@ -1,0 +1,11 @@
+@use './sidebar.scss';
+@use './search.scss';
+@use './control.scss';
+
+.livetv {
+  width: 192rem;
+  height: var(--screen-height, 108rem);
+  background: var(--app-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

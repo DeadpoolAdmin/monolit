@@ -1,0 +1,17 @@
+include:
+  - project: 'hotelsmarters-v2/gitlab-ci-templates'
+    file: '/.gitlab-ci-templates/release-template.yaml'
+    ref: master
+variables:
+  DOCKER_IMAGE: "inorain/hotelsmarterstv-app"
+  VALUES_FILE: "tv-app-values.yaml"
+  APP_NAME: "tv-app"
+  CI_RUNNER_TAG: "hotelsmarters-tv"
+build:
+  extends: .build_template
+deploy-dev:
+  extends: .deploy_to_dev
+# deploy-stage:
+#   extends: .deploy_to_stage
+deploy-prod:
+  extends: .deploy_to_prod

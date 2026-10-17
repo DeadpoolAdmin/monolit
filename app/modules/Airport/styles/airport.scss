@@ -1,0 +1,123 @@
+.airport {
+    width: 192rem;
+    height: var(--screen-height, 100vh);
+    overflow: hidden;
+    background: var(--app-background, var(--initial-app-background)) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    .airport__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: var(--screen-height, 100vh);
+      flex-direction: column;
+      position: relative;
+  
+      .airport__body {
+        position: absolute;
+        width: 192rem;
+        height: 100%;
+        z-index: 1;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+        color: var(--heading-text-color, var(--initial-heading-text-color));
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-size: 5rem;
+        font-weight: 400;
+        padding-top: 29rem;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+  
+        .airport__list {
+          font-size: 3.5rem;
+  
+          .airport__item {
+            display: flex;
+            align-items: center;
+            padding: 4rem;
+            border-radius: 2rem;
+            background: var(--room-control-card-bg);
+            border: 0.2rem solid transparent;
+            color: var(--card-text-color);
+  
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+  
+            .item__img {
+              width: 7rem;
+              height: 7rem;
+  
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+  
+            .item__name {
+              margin-left: 2rem;
+              font-size: 3rem;
+              flex: 1;
+            }
+  
+            .item__selected {
+              padding: 1.1rem;
+              width: 5rem;
+              background: #282828;
+              border-radius: 0.6rem;
+  
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+        }
+      }
+  
+      .airport__background {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+  
+        .background__world {
+          display: flex;
+          height: 75.46rem;
+          width: 77.4rem;
+          position: relative;
+          top: -18rem;
+  
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+  
+        .background__distance {
+          position: absolute;
+          width: 39.2rem;
+          height: 10.15rem;
+          top: -3rem;
+          left: 21rem;
+  
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  

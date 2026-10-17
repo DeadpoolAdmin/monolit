@@ -1,0 +1,41 @@
+.welcome__message {
+  width: 120rem;
+  font-weight: 600;
+  position: relative;
+  top: 5rem;
+  font-family: var(--heading-font-family);
+  overflow: hidden; // Container to hide overflow
+  color: var(--heading-text-color);
+  left: 4rem;
+
+  span {
+    display: inline-block;
+    width: 120rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  p {
+    display: inline-block;
+    width: 120rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  * {
+    font-family: inherit;
+  }
+}
+
+// Pause animation on hover (optional)
+.welcome__message:hover span {
+  animation-play-state: paused;
+}

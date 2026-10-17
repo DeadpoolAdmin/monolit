@@ -1,0 +1,30 @@
+@use "./tabs.scss" as *;
+@use "./languages.scss" as *;
+@use "./version.scss" as *;
+@use "./device-info.scss" as *;
+@use "./wifi-content.scss" as *;
+
+.settings {
+  width: 192rem;
+  height: var(--screen-height);
+  overflow: hidden;
+  position: absolute;
+  padding-top: 12rem;
+  top: 0;
+  left: 0;
+  background: var(--app-background, var(--initial-app-background));
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .settings__content {
+    width: 162rem;
+    margin: 0 auto;
+    height: var(--screen-height);
+
+    .settings__content__body {
+      width: 100%;
+      margin-top: 10rem;
+      overflow: hidden;
+    }
+  }
+}

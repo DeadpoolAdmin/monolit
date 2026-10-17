@@ -1,0 +1,772 @@
+@use "./room_control_server_issue.scss";
+
+.room_control__container {
+  width: 192rem;
+  height: var(--screen-height);
+  background: var(--app-background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .room_control {
+    width: 176rem;
+    height: 108rem;
+    overflow: hidden;
+    padding-top: 15rem;
+    position: absolute;
+    top: 0;
+    margin: 0 10rem;
+
+    &.tablet {
+      .scroll-view-parent {
+        height: 98% !important;
+        overflow: auto !important;
+      }
+    }
+
+    .scroll-view-parent {
+      overflow: hidden !important;
+    }
+
+    font-family: var(--heading-font-family, var(--initial-heading-font-family));
+    color: var(--heading-text-color, var(--initial-heading-text-color));
+
+    * {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .list__item {
+      background: var(
+        --room-control-card-bg,
+        var(--initial-room-control-card-bg)
+      );
+      border-radius: 1.2rem;
+      border: 0.2rem solid transparent;
+      transition: 0.1s ease;
+      color: var(--card-text-color, var(--initial-card-text-color));
+
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+
+      &.toggled {
+        .item__top {
+          .top__right {
+            opacity: 1;
+          }
+        }
+      }
+
+      .item__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .top__title {
+          span {
+            font-size: 3.2rem;
+          }
+        }
+        padding: 2rem;
+
+        .top__right {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          background: var(
+            --primary-button-bg-color,
+            var(--initial-primary-button-bg-color)
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.1s ease;
+          opacity: 0.6;
+
+          img {
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .item__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .content__image {
+          position: relative;
+          z-index: 1;
+          width: 14rem;
+          height: 14rem;
+          transition: 0.1s ease;
+
+          &.loading {
+            opacity: 0;
+          }
+
+          &.loaded {
+            opacity: 1;
+            animation: fadeIn 0.3s ease-in;
+          }
+
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+
+          .image-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+              will-change: opacity;
+
+              &.smooth-fade {
+                transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+              }
+
+              &.hide {
+                opacity: 0 !important;
+              }
+
+              &.show {
+                opacity: 1 !important;
+              }
+            }
+
+            .curtain-images {
+              width: 100%;
+              height: 100%;
+              position: relative;
+
+              .img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: opacity;
+
+                &.smooth-fade {
+                  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+              }
+
+              // Curtain CLOSED state (default)
+              // Shows default icon, hides active icon
+              .img.default.show {
+                opacity: 1;
+              }
+
+              .img.active.hide {
+                opacity: 0;
+              }
+
+              // Curtain OPEN state (when .show class is added to container)
+              // Hides default icon, shows active icon
+              &.show {
+                .img.default {
+                  opacity: 0 !important;
+                }
+
+                .img.active {
+                  opacity: 1 !important;
+                }
+              }
+            }
+
+            .blind-images {
+              width: 100%;
+              height: 100%;
+              position: relative;
+
+              .img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                will-change: opacity;
+
+                &.smooth-fade {
+                  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+              }
+
+              // Blind CLOSED state (default)
+              // Shows default icon, hides active icon
+              .img.default.show {
+                opacity: 1;
+              }
+
+              .img.active.hide {
+                opacity: 0;
+              }
+
+              // Blind OPEN state (when .show class is added to container)
+              // Hides default icon, shows active icon
+              &.show {
+                .img.default {
+                  opacity: 0 !important;
+                }
+
+                .img.active {
+                  opacity: 1 !important;
+                }
+              }
+            }
+          }
+
+          &.bedLight {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.led {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.make-up-room {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.corridorLight {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.curtain {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.blind {
+            width: 14rem;
+            height: 14rem;
+          }
+
+          &.temperature {
+            width: 18rem;
+            height: 18rem;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .image_show {
+          &.loading {
+            opacity: 0;
+          }
+
+          &.loaded {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+          }
+
+          img {
+            position: relative;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0 !important;
+            will-change: opacity;
+
+            &.smooth-fade {
+              transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            &.masterLight {
+              width: 17rem;
+              top: -4rem;
+            }
+
+            &.bedLight {
+              width: 20rem;
+              top: -5rem;
+            }
+
+            &.show {
+              opacity: 1 !important;
+            }
+
+            &.hide {
+              opacity: 0 !important;
+            }
+          }
+        }
+
+        .content__imageon {
+          transition: 0.1s ease-in;
+          opacity: 0;
+
+          &.disturb {
+            position: relative;
+            top: -4rem;
+            width: 13rem;
+            height: 11rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.show {
+            opacity: 1;
+          }
+
+          &.bed_light {
+            width: 22rem;
+            position: relative;
+            top: -5.3rem;
+            left: -1.8rem;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          &.corridor_light {
+            position: relative;
+            top: -3.9rem;
+            left: -0.7rem;
+            width: 11rem;
+            height: 9rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.master_light {
+            position: relative;
+            top: -3.8rem;
+            width: 14rem;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          &.scenes {
+            position: relative;
+            top: -21rem;
+            left: 0.5rem;
+            width: 13rem;
+            img {
+              width: 100%;
+            }
+          }
+
+          &.curtains {
+            position: relative;
+            top: -9rem;
+            left: 0.5rem;
+            height: 21rem;
+            width: 19rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.makeup {
+            position: relative;
+            top: -9rem;
+            left: 3.5rem;
+            width: 13rem;
+            img {
+              width: 100%;
+            }
+          }
+
+          &.door {
+            position: relative;
+            top: -13rem;
+            left: 9rem;
+            width: 14rem;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          &.conditioner {
+            position: relative;
+            top: -6rem;
+            width: 16rem;
+            height: 8rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
+        .room_control__conditioner__content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: absolute;
+          top: 15rem;
+          width: 50rem;
+          .content__conditioner__temperature {
+            font-size: 2.3rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 18rem;
+            span {
+              width: 100%;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              line-clamp: 1;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              display: -webkit-box;
+              text-align: center;
+            }
+            .conditioner__temperature__action {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              position: relative;
+              top: -1rem;
+
+              & > *:not(:last-child) {
+                margin-right: 2rem;
+              }
+
+              .temperature__plus,
+              .temperature__minus {
+                background: var(--primary-button-bg-color);
+                width: 12rem;
+                height: 4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.4rem;
+                border: 0.2rem solid transparent;
+                font-size: 1.7rem;
+
+                &.active {
+                  border-color: var(
+                    --active-color,
+                    var(--initial-active-color)
+                  );
+                }
+              }
+            }
+          }
+          .content__conditioner__speed {
+            span {
+              font-size: 2.2rem;
+            }
+          }
+        }
+
+        .room_control__conditioner__heating__container {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          position: absolute;
+          top: 28rem;
+          width: 50rem;
+          justify-content: space-around;
+        }
+
+        .room_control__conditioner__heating {
+          bottom: 2rem;
+          font-size: 2.3rem;
+          display: flex;
+          align-items: center;
+          // Use margin as fallback for gap compatibility in older browsers
+          & > *:not(:last-child) {
+            margin-right: 2rem;
+          }
+
+          & > span {
+            font-size: 2.2rem;
+          }
+
+          .heating__switch {
+            position: relative;
+            width: 8rem;
+            height: 4.5rem;
+            border: 0.2rem solid transparent;
+            border-radius: 3rem;
+            transition: border-color 0.2s ease;
+
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+
+            input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+              position: absolute;
+            }
+
+            .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 4rem;
+              background-color: var(--secondary-button-bg-color);
+              transition: 0.3s;
+              border-radius: 2rem;
+
+              &:before {
+                position: absolute;
+                content: "";
+                height: 3rem;
+                width: 3rem;
+                left: 0.5rem;
+                bottom: 0.5rem;
+                background-color: white;
+                transition: 0.3s;
+                border-radius: 50%;
+                box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+              }
+            }
+
+            input:checked + .slider {
+              background-color: var(
+                --primary-button-bg-color,
+                var(--initial-primary-button-bg-color)
+              );
+            }
+
+            input:checked + .slider:before {
+              transform: translateX(4rem);
+            }
+          }
+        }
+
+
+
+        .room_control__content__temperature,
+        .room_control__content__curtains {
+          margin: 6.5rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 50rem;
+          font-size: 3rem;
+
+          
+
+          .temperature__minus {
+            background-color: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            width: 13rem;
+            height: 6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3rem;
+            border: 0.2rem solid transparent;
+            font-size: 3rem;
+            height: 6.1rem;
+
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+          }
+
+          .temperature__plus {
+            background-color: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            width: 13rem;
+            height: 6.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3rem;
+            border: 0.2rem solid transparent;
+            font-size: 3rem;
+
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+          }
+        }
+
+
+        .room_control__content__temperature {
+          margin: -1.5rem 0;
+        }
+
+        .room_control__content__buttons {
+          position: absolute;
+          top: 24.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 50rem;
+          // gap is not supported in flexbox on older browsers; use margin-right as fallback
+          // Note: The last child does not get margin-right
+          & > *:not(:last-child) {
+            margin-right: 3rem;
+          }
+
+          button {
+            width: 15rem;
+            span {
+              font-size: 2.2rem;
+            }
+            border: 0.2rem solid transparent !important;
+
+            &.active {
+              border-color: var(
+                --active-color,
+                var(--initial-active-color)
+              ) !important;
+            }
+          }
+        }
+      }
+
+      .item__powerbar {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -8rem;
+        width: 90%;
+        margin: auto;
+
+        .powerbar__progressbar {
+          position: relative;
+          top: 2rem;
+          width: 51rem;
+          height: 1.4rem;
+          background-color: #28282c;
+          border-radius: 1rem;
+
+          .progressbar__background {
+            background: var(
+              --primary-button-bg-color,
+              var(--initial-primary-button-bg-color)
+            );
+            width: 0rem;
+            border-radius: 1rem;
+            transition: 0.1s ease;
+
+            .background__inner {
+              width: 1.4rem;
+              height: 1.4rem;
+              background: white;
+              position: relative;
+              left: 98%;
+              border-radius: 1rem;
+            }
+          }
+        }
+
+        .powerbar__top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          div {
+            border: 0.2rem solid transparent;
+            transition: 0.1s ease;
+
+            &.isActive {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+          }
+
+          .top__minus {
+            background-color: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 0.4rem;
+            border: 0.2rem solid transparent;
+
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+
+            span {
+              font-size: 4rem;
+              text-align: center;
+              position: relative;
+              top: -0.5rem;
+              color: var(
+                --secondary-button-text-color,
+                var(--initial-secondary-button-text-color)
+              );
+            }
+          }
+
+          .top__plus {
+            span {
+              font-size: 4rem;
+              text-align: center;
+              color: var(
+                --secondary-button-text-color,
+                var(--initial-secondary-button-text-color)
+              );
+            }
+
+            background-color: var(
+              --secondary-button-bg-color,
+              var(--initial-secondary-button-bg-color)
+            );
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 0.4rem;
+            border: 0.2rem solid transparent;
+
+            &.active {
+              border-color: var(--active-color, var(--initial-active-color));
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,285 @@
+// Import shared status color variables
+@use "@shared/styles/variables" as *;
+
+.order-table {
+  padding: 0;
+  background: transparent;
+  color: var(--heading-text-color, white);
+  font-family: var(--heading-font-family, var(--initial-heading-font-family));
+  position: relative;
+  width: 100%;
+  max-width: 140rem;
+  overflow: auto;
+  margin: 2rem auto;
+  height: 60rem;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 2.5rem;
+    border: 0.2rem solid rgba(213, 215, 229, 0.3);
+    table-layout: fixed;
+
+    thead {
+      th {
+        text-align: center;
+        color: var(--heading-text-color, #7b8ba3);
+        font-weight: 500;
+        font-size: 2.8rem;
+        padding: 2rem 1.5rem;
+        border-bottom: 0.2rem solid rgba(213, 215, 229, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        background: rgba(32, 32, 35, 0.4);
+
+        &:not(:last-child) {
+          border-right: 0.2rem solid rgba(213, 215, 229, 0.3);
+        }
+
+        // Image column
+        &:nth-child(1) {
+          width: 9.8rem;
+        }
+
+        // Item name column
+        &:nth-child(2) {
+          width: 20rem;
+          text-align: left;
+          padding-left: 2rem;
+        }
+
+        // Quantity
+        &:nth-child(3) {
+          width: 10rem;
+        }
+
+        // Price
+        &:nth-child(4) {
+          width: 11rem;
+        }
+
+        // Status
+        &:nth-child(5) {
+          width: 13rem;
+        }
+
+        // Action
+        &:nth-child(6) {
+          width: 12rem;
+        } 
+      }
+    }
+
+    tbody {
+      tr {
+        position: relative;
+        transition: all 0.3s ease;
+        height: 14rem;
+
+        &:nth-child(even) {
+          background: rgba(32, 32, 35, 0.5);
+        }
+
+        &:nth-child(odd) {
+          background: transparent;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 0.2rem solid rgba(213, 215, 229, 0.3);
+        }
+
+        &.active {
+         button {
+          border-color: var(--active-color, var(--initial-active-color));
+         }
+        }
+
+        td {
+          padding: 1.5rem;
+          transition: 0.2s ease;
+          color: var(--card-text-color, #ffffff);
+          font-size: 2.8rem;
+          vertical-align: middle;
+          text-align: center;
+          height: 14rem !important;
+
+          &:not(:last-child) {
+            border-right: 0.2rem solid rgba(213, 215, 229, 0.3);
+          }
+
+          &.image-cell {
+            width: 18rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .item-image {
+              width: 9rem;
+              height: 9rem;
+              border-radius: 0.8rem;
+              overflow: hidden;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              background: rgba(255, 255, 255, 0.05);
+              border: 0.1rem solid rgba(255, 255, 255, 0.1);
+
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+
+          &.name-cell {
+            font-weight: 500;
+            text-align: left;
+            width: 20rem;
+            padding-left: 2rem;
+          }
+
+          &.quantity-cell {
+            font-weight: 500;
+            width: 10rem;
+          }
+
+          &.price-cell {
+            font-weight: 600;
+            width: 11rem;
+          }
+
+          &.status-cell {
+            font-weight: 700;
+            text-transform: capitalize;
+            letter-spacing: 0.05rem;
+            width: 13rem;
+
+            div {
+              max-width: 23rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .status-icon {
+                display: flex;
+                align-items: center;
+                margin-right: 1rem;
+              }
+            }
+
+            &.pending {
+              color: $pending-text;
+            }
+
+            &.accepted,
+            &.ready {
+              color: $ready-text;
+            }
+
+            &.canceled {
+              color: $canceled-text;
+            }
+          }
+
+          &.action-cell {
+            width: 22rem;
+            margin: 0 auto; // Center the block horizontally
+          }
+
+          &.total-cell {
+            font-weight: 600;
+            color: var(--primary-button-bg-color, #2d6cdf);
+          }
+        }
+      }
+    }
+  }
+
+  // Pagination display
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    margin-top: 1rem;
+
+    .pagination__text {
+      color: var(--heading-text-color, #ffffff);
+      font-size: 2.5rem;
+      font-weight: 500;
+      font-family: var(--heading-font-family, var(--initial-heading-font-family));
+      letter-spacing: 0.05rem;
+    }
+  }
+
+  // Loading state
+  &-loading,
+  &-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    color: var(--card-text-color, #ffffff);
+    font-size: 2rem;
+    font-family: var(--heading-font-family, var(--initial-heading-font-family));
+  }
+
+  // Skeleton loader
+  &-skeleton {
+    .skeleton-row {
+      pointer-events: none;
+
+      td {
+        padding: 1.5rem 2rem;
+      }
+    }
+
+    .skeleton-pulse {
+      animation: skeleton-pulse 1.5s ease-in-out infinite;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+      );
+      background-size: 200% 100%;
+      border-radius: 0.5rem;
+    }
+
+    .skeleton-image {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 0.5rem;
+      margin: 0 auto;
+    }
+
+    .skeleton-text {
+      height: 2.5rem;
+      width: 100%;
+      max-width: 25rem;
+      margin: 0 auto;
+
+      &-small {
+        max-width: 8rem;
+      }
+    }
+
+    .skeleton-button {
+      height: 5rem;
+      width: 12rem;
+      margin: 0 auto;
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+

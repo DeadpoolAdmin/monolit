@@ -1,0 +1,44 @@
+.room_control_server_issue {
+  width: 192rem;
+  height: var(--screen-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .room_control_server_issue__title {
+    font-family: var(--heading-font-family);
+    font-size: 5.7949rem;
+    color: var(--heading-text-color, var(--initial-heading-text-color));
+  }
+
+  .room_control_server_issue__description {
+    color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+    font-family: var(--paragraph-font-family);
+    text-align: center;
+    width: 95.7rem;
+    text-shadow: 0 2.246px 8.196px rgba(0, 0, 0, 0.27);
+    font-size: 3.3114rem;
+    font: optional;
+    margin-top: 2.9rem;
+  }
+
+  .room_control_server_issue__icon {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .room_control_server_issue__button {
+    margin-top: 11.5rem;
+
+    button {
+      border: 0.2rem solid transparent;
+      &.active {
+        border-color: var(--active-color, var(--initial-active-color));
+      }
+    }
+  }
+}

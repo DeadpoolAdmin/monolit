@@ -1,0 +1,836 @@
+// Import shared status color variables
+@use "@shared/styles/variables" as *;
+
+// Status utility classes
+.pending {
+  color: $pending-text;
+  background-color: $pending;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.finished {
+  color: $finished-text;
+  background-color: $finished;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.canceled {
+  color: $canceled-text;
+  background-color: $canceled;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.accepted,
+.ready {
+  color: $ready-text;
+  background-color: $ready;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.confirmed {
+  color: $confirmed-text;
+  background-color: $confirmed;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.rejected {
+  color: $rejected-text;
+  background-color: $rejected;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.in_progress,
+.progress {
+  color: $in_progress-text;
+  background-color: $in_progress;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.orders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--app-background, #131226);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 192rem;
+  height: var(--screen-height, 108rem);
+  overflow: hidden;
+  font-family: var(--heading-font-family, var(--initial-heading-font-family));
+  top: 0;
+  left: 0;
+  padding-top: 20rem;
+
+  .order-loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -8rem;
+
+    svg {
+      width: 20rem;
+      height: 20rem;
+      stroke: var(
+        --primary-button-bg-color,
+        var(--initial-primary-button-bg-color)
+      );
+    }
+
+    .preloader {
+      text-align: center;
+      max-width: 20em;
+      width: 100%;
+    }
+
+    .preloader__text {
+      position: relative;
+      height: 1.5em;
+    }
+
+    .preloader__msg {
+      animation: msg 0.3s 13.7s linear forwards;
+      position: absolute;
+      width: 100%;
+    }
+
+    .preloader__msg--last {
+      animation-direction: reverse;
+      animation-delay: 14s;
+      visibility: hidden;
+    }
+
+    .cart {
+      display: block;
+      margin: 0 auto 1.5em auto;
+      width: 8em;
+      height: 8em;
+    }
+
+    .cart__lines,
+    .cart__top,
+    .cart__wheel1,
+    .cart__wheel2,
+    .cart__wheel-stroke {
+      animation: cartLines 2s ease-in-out infinite;
+    }
+
+    .cart__lines {
+      stroke: var(
+        --primary-button-hovered-color,
+        var(--initial-primary-button-hovered-color)
+      );
+    }
+
+    .cart__top {
+      animation-name: cartTop;
+    }
+
+    .cart__wheel1 {
+      animation-name: cartWheel1;
+      transform: rotate(-0.25turn);
+      transform-origin: 4.3rem 11.1rem;
+    }
+
+    .cart__wheel2 {
+      animation-name: cartWheel2;
+      transform: rotate(0.25turn);
+      transform-origin: 10.2rem 11.1rem;
+    }
+
+    .cart__wheel-stroke {
+      animation-name: cartWheelStroke;
+    }
+
+    .cart__track {
+      stroke: hsla(var(--hue), 10%, 10%, 0.1);
+      transition: stroke 0.3s ease;
+    }
+  }
+
+  .no_order {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15rem 7rem;
+
+    .no_order__image {
+      width: 17rem;
+      height: 17rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .no_order__text {
+      margin-top: 3rem;
+      color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
+
+  .order__cart {
+    width: 175.3rem;
+    overflow: hidden;
+    border-radius: 2rem;
+    padding: 6.4rem 16.2rem;
+    height: var(--screen-height);
+
+    .order__cancel__button {
+      position: relative;
+      top: -3rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-family: var(
+        --heading-font-family,
+        var(--initial-heading-font-family)
+      );
+      color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+    }
+
+    .order__cart__header {
+      font-size: 4rem;
+      color: var(--heading-text-color, var(--initial-heading-text-color));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .header__status {
+        span {
+          font-size: 2.7rem;
+          padding: 1rem 1.5rem;
+          border-radius: 0.6rem;
+
+          &.pending {
+            color: $pending-text;
+            background-color: $pending;
+          }
+
+          &.canceled {
+            color: $canceled-text;
+            background-color: $canceled;
+          }
+
+          &.ready,
+          &.accepted {
+            color: $ready-text;
+            background-color: $ready;
+          }
+
+          &.finished {
+            color: $finished-text;
+            background-color: $finished;
+          }
+
+          &.confirmed {
+            color: $confirmed-text;
+            background-color: $confirmed;
+          }
+
+          &.rejected {
+            color: $rejected-text;
+            background-color: $rejected;
+          }
+
+          &.in_progress {
+            color: $in_progress-text;
+            background-color: $in_progress;
+          }
+
+          &.progress {
+            color: $in_progress-text;
+            background-color: $in_progress;
+          }
+        }
+      }
+    }
+
+    .order__cart_top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .top__tabs {
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: var(--room-control-card-bg, #202023);
+        padding: 1.4rem 7rem;
+        border-radius: 7.43rem;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+        transition: 0.3s ease;
+        color: var(--card-text-color, var(--initial-card-text-color));
+
+        * {
+          font-family: inherit;
+          color: inherit;
+        }
+
+        span {
+          font-size: 2.7rem;
+        }
+
+        .reservations {
+          min-width: 22rem;
+          max-width: 38rem;
+          padding: 1rem 1.5rem;
+          margin-left: 2rem;
+          border-radius: 7.43rem;
+          text-align: center;
+          transition: 0.3s ease;
+          border: 0.2rem solid transparent;
+
+          span {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+          }
+
+          &.active {
+            border-color: var(--active-color, var(--initial-active-color));
+          }
+
+          &.selected {
+            background: var(
+              --primary-button-bg-color,
+              var(--initial-primary-button-bg-color)
+            );
+          }
+        }
+
+        .inventories {
+          min-width: 22rem;
+          max-width: 38rem;
+          padding: 1rem 1.5rem;
+          text-align: center;
+          margin-right: 2rem;
+          border-radius: 7.43rem;
+          transition: 0.3s ease;
+          border: .2rem solid transparent;
+
+          span {
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+          }
+
+
+          &.active {
+            border-color: var(--active-color, var(--initial-active-color));
+          }
+
+          &.selected {
+            background: var(
+              --primary-button-bg-color,
+              var(--initial-primary-button-bg-color)
+            );
+          }
+        }
+      }
+
+      .top__clear {
+        span {
+          color: rgb(68, 68, 68);
+        }
+      }
+
+      span {
+        font-size: 3.5rem;
+      }
+
+      .top__history {
+        display: flex;
+        align-items: center;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+        color: var(--heading-text-color, var(--initial-heading-text-color));
+
+        * {
+          font-family: inherit;
+          color: inherit;
+        }
+
+        span {
+          order: 1;
+          margin-left: 2rem;
+        }
+
+        .history__ico {
+          width: 5rem;
+          height: 5rem;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    .order__cart_item_list {
+      margin: 3.7rem 0;
+      height: 65rem !important;
+    }
+
+    .order__cart_list {
+      margin: 5.7rem 0;
+      height: 83rem;
+      color: var(--paragraph-text-color, var(--initial-paragraph-text-color));
+      overflow-y: auto;
+
+      .data__drawer {
+        > div {
+          margin: 2rem 0;
+        }
+      }
+
+      * {
+        font-family: inherit;
+        color: inherit;
+      }
+
+      .order__item {
+        width: 100%;
+        padding: 3rem;
+        border: 0.2rem solid transparent;
+        border-radius: 2rem;
+        // background: var(--room-control-card-bg, #202023);
+        display: flex;
+        // flex-direction: column;
+        align-items: center;
+        border: 0.2rem solid transparent;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+        background: var(--room-control-card-bg, #202023);
+        color: var(--card-text-color, var(--initial-card-text-color));
+
+        .order__image {
+          width: 30rem;
+          height: 15rem;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2rem;
+          }
+        }
+
+        .order__text {
+          font-size: 3rem;
+          text-align: left;
+          margin-left: 2rem;
+        }
+
+        .order__name {
+          width: 104rem;
+          font-size: 4.5rem;
+          font-weight: 700;
+        }
+
+        .order__quantity {
+          font-size: 3.4rem;
+          width: 7rem;
+          height: 7rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3rem;
+          background: var(--room-control-card-bg, #202023);
+          border-radius: 50%;
+          color: var(
+            --card-text-color,
+            var(--initial-card-text-color)
+          ) !important;
+        }
+
+        .order__down_text {
+          font-size: 4rem;
+        }
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      .cart__item {
+        width: 100%;
+        padding: 3rem;
+        border: 0.2rem solid transparent;
+        border-radius: 2rem;
+        background: var(--room-control-card-bg, #202023);
+        color: var(--card-text-color, var(--initial-card-text-color));
+        display: flex;
+        flex-direction: column;
+        border: 0.2rem solid transparent;
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+
+        .item__body {
+          .item__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .content__detail__total {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              .content__detail__see_details {
+                font-size: 3.2rem;
+                color: var(--card-text-color, var(--initial-card-text-color));
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                margin-top: 3rem;
+                justify-content: flex-end;
+
+                svg {
+                  margin-left: 1rem;
+                }
+              }
+
+              .content__detail__total__price {
+                font-size: 4.2rem;
+                min-width: 32rem;
+
+                .content__detail__total__title {
+                  font-weight: 700;
+                }
+              }
+            }
+
+            .content__images {
+              display: flex;
+              align-items: center;
+              margin-top: 3rem;
+              position: relative;
+              left: -1rem;
+              width: 107rem;
+              overflow: hidden;
+
+              .images__wrapper {
+                display: flex;
+                align-items: center;
+                min-width: fit-content;
+                will-change: transform;
+
+                .image__container {
+                  width: 19.2rem;
+                  height: 15.7rem;
+                  margin: 0 1rem;
+                  border-radius: 1rem;
+                  flex-shrink: 0;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 1rem;
+                  }
+                }
+              }
+            }
+          }
+
+          .item__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .item__timestamp {
+              font-size: 3.6rem;
+            }
+
+            .item__status {
+              font-size: 2rem;
+              padding: 1rem 1.5rem;
+              border-radius: 0.6rem;
+
+              &.pending {
+                color: $pending-text !important;
+                background-color: $pending !important;
+              }
+
+              &.canceled {
+                color: $canceled-text !important;
+                background-color: $canceled !important;
+              }
+
+              &.ready,
+              &.accepted {
+                color: $ready-text !important;
+                background-color: $ready !important;
+              }
+
+              &.finished {
+                color: $finished-text !important;
+                background-color: $finished !important;
+              }
+
+              &.confirmed {
+                color: $confirmed-text !important;
+                background-color: $confirmed !important;
+              }
+
+              &.rejected {
+                color: $rejected-text !important;
+                background-color: $rejected !important;
+              }
+
+              &.in_progress {
+                color: $in_progress-text !important;
+                background-color: $in_progress !important;
+              }
+
+              &.progress,
+              &[class*="in progress"] {
+                color: $in_progress-text !important;
+                background-color: $in_progress !important;
+              }
+            }
+          }
+        }
+
+        &.active {
+          border-color: var(--active-color, var(--initial-active-color));
+        }
+      }
+
+      @media not screen and (width: 1920px) {
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+    }
+  }
+}
+
+
+.item__status {
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.6rem;
+
+  &.pending {
+    color: $pending-text !important;
+    background-color: $pending !important;
+  }
+
+  &.canceled {
+    color: $canceled-text !important;
+    background-color: $canceled !important;
+  }
+
+  &.ready,
+  &.accepted {
+    color: $ready-text !important;
+    background-color: $ready !important;
+  }
+
+  &.finished {
+    color: $finished-text !important;
+    background-color: $finished !important;
+  }
+
+  &.confirmed {
+    color: $confirmed-text !important;
+    background-color: $confirmed !important;
+  }
+
+  &.rejected {
+    color: $rejected-text !important;
+    background-color: $rejected !important;
+  }
+
+  &.in_progress {
+    color: $in_progress-text !important;
+    background-color: $in_progress !important;
+  }
+
+  &.progress,
+  &[class*="in progress"] {
+    color: $in_progress-text !important;
+    background-color: $in_progress !important;
+  }
+}
+
+@keyframes cartLines {
+  from,
+  to {
+    opacity: 0;
+  }
+
+  8%,
+  92% {
+    opacity: 1;
+  }
+}
+
+@keyframes cartTop {
+  from {
+    stroke-dashoffset: -338;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 338;
+  }
+}
+
+@keyframes cartWheel1 {
+  from {
+    transform: rotate(-0.25turn);
+  }
+
+  to {
+    transform: rotate(2.75turn);
+  }
+}
+
+@keyframes cartWheel2 {
+  from {
+    transform: rotate(0.25turn);
+  }
+
+  to {
+    transform: rotate(3.25turn);
+  }
+}
+
+@keyframes cartWheelStroke {
+  from,
+  to {
+    stroke-dashoffset: 81.68;
+  }
+
+  50% {
+    stroke-dashoffset: 40.84;
+  }
+}
+
+@keyframes msg {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  99.9% {
+    opacity: 0;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+.confirm__popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 192rem;
+    height: var(--screen-height, 108rem);
+    background-color: rgba(0, 0, 0, 0.5);
+  
+    .confirm__popup__content {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      padding-top: 10rem;
+      // justify-content: center;
+      width: 100rem !important;
+      height: 40rem !important;
+      background: var(
+        --room-control-card-bg,
+        var(--initial-room-control-card-bg)
+      );
+      border-radius: 1rem;
+      // padding: 7rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 30rem;
+      color: var(--card-text-color, var(--initial-card-text-color));
+  
+      .confirm__popup__content__title {
+        font-size: 4.7rem;
+        font-weight: 600;
+        color: var(--card-text-color, var(--initial-card-text-color));
+        font-family: var(
+          --heading-font-family,
+          var(--initial-heading-font-family)
+        );
+      }
+  
+      .confirm__popup__content__buttons {
+        position: relative;
+        top: 7rem;
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+        width: 60rem;
+      }
+    }
+  }
+  

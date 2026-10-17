@@ -1,0 +1,209 @@
+// Import shared status color variables
+@use "../variables" as *;
+
+.toast-container {
+  min-width: 70rem;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  z-index: 9999999999;
+  display: flex;
+  flex-direction: column;
+  max-width: 130rem;
+  font-family: var(--heading-font-family);
+  // Cross-browser alternative to gap: 2.5rem
+  .toast:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.toast {
+  position: relative;
+  min-height: 12rem;
+  border-radius: 2rem;
+  background: var(--room-control-card-bg);
+  padding: 3rem 3rem 3rem 3rem;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.2);
+  // border-bottom: 0.8rem solid #34b69b;
+  overflow: hidden;
+  transform: translateX(calc(100% + 4rem));
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+  max-width: 130rem;
+  color: var(--card-text-color, var(--initial-card-text-color));
+}
+
+.toast.active {
+  transform: translateX(0);
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  // Cross-browser alternative to gap: 2.5rem
+  > *:not(:last-child) {
+    margin-right: 2.5rem;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: #34b69b;
+    flex-shrink: 0;
+  }
+}
+
+.toast-action {
+  float: right;
+  margin-top: 2rem;
+  display: flex;
+}
+
+.toast-content .check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  color: #34b69b;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+}
+
+.toast-content .message {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.message .text {
+  font-size: 3.2rem !important;
+  font-weight: 400;
+  color: var(--card-text-color, var(--initial-card-text-color));
+  margin: 0;
+}
+
+.message .owner {
+  margin-bottom: 0.8rem;
+  color: var(--card-text-color, var(--initial-card-text-color));
+}
+
+.message .owner-text {
+  font-size: 3rem !important;
+  font-weight: 600;
+  color: var(--card-text-color, var(--initial-card-text-color));
+  margin: 0;
+  letter-spacing: 0.05rem;
+}
+
+.toast-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+
+  // Cross-browser alternative to gap: 1.5rem
+  > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.status-badge {
+  padding: 0.4rem 1.2rem;
+  border-radius: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: capitalize;
+
+  &.progress {
+    background: $in_progress;
+    color: $in_progress-text !important;
+  }
+
+  &.pending {
+    background: $pending;
+    color: $pending-text !important;
+  }
+
+  &.rejected {
+    background: $rejected;
+    color: $rejected-text !important;
+  }
+
+  &.canceled {
+    background: $canceled !important;
+    color: $canceled-text !important;
+  }
+
+  &.ready,
+  &.accepted,
+  &.finished,
+  &.confirmed,
+  &.completed {
+    background: $ready !important;
+    color: $ready-text !important;
+  }
+
+  &.new {
+    background: rgba(33, 150, 243, 0.2);
+    color: #90caf9;
+    border: 2px solid rgba(33, 150, 243, 0.3);
+  }
+
+  &.read {
+    background: rgba(158, 158, 158, 0.2);
+    color: #bdbdbd;
+    border: 2px solid rgba(158, 158, 158, 0.3);
+  }
+
+  &.order-status {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.timestamp {
+  font-size: 2rem;
+  color: var(--card-text-color, var(--initial-card-text-color));
+  font-weight: 400;
+}
+
+.toast .close {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 2rem;
+}
+
+.toast .close:hover {
+  opacity: 1;
+}
+
+// button {
+//   padding: 2rem 3rem;
+//   font-size: 2.5rem;
+//   outline: none;
+//   border: none;
+//   background-color: #34b69b;
+//   color: #fff;
+//   border-radius: 1.2rem;
+//   cursor: pointer;
+//   transition: 0.3s;
+// }
+
+// button:hover {
+//   background-color: #34b69b;
+// }
+
+// .toast.active ~ button {
+//   pointer-events: none;
+// }

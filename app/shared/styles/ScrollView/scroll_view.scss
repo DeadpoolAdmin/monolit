@@ -1,0 +1,17 @@
+.data__drawer {
+  position: relative;
+
+  &.horizontal-list {
+    display: flex;
+    align-items: center;
+
+    div {
+      margin: 0 2rem;
+    }
+  }
+
+  &.grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

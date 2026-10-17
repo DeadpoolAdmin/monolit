@@ -1,0 +1,27 @@
+$charade: #282a37;
+$bluebell: #979fd0;
+
+.button__loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.3rem solid rgba($bluebell, 0.3);
+  border-top-color: $bluebell;
+  animation: 1.5s spin infinite linear;
+
+  &.multi {
+    border-bottom-color: $bluebell;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
